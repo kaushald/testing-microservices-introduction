@@ -1,12 +1,12 @@
 # Testing Microservices Introduction
 
-[![Build Status](https://travis-ci.org/AITestingOrg/banking-microservices-tutorial.svg?branch=master)](https://travis-ci.org/AITestingOrg/banking-microservices-tutorial)
-[![Coverage Status](https://coveralls.io/repos/github/AITestingOrg/banking-microservices-tutorial/badge.svg?branch=master)](https://coveralls.io/github/AITestingOrg/banking-microservices-tutorial?branch=master)
+[![Build Status](https://travis-ci.org/UltimateSoftware/testing-microservices-introduction.svg?branch=master)](https://travis-ci.org/UltimateSoftware/testing-microservices-introduction)
+[![Coverage Status](https://coveralls.io/repos/github/UltimateSoftware/testing-microservices-introduction/badge.svg)](https://coveralls.io/github/UltimateSoftware/testing-microservices-introduction)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FAITestingOrg%2Fbanking-microservices-tutorial.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FAITestingOrg%2Fbanking-microservices-tutorial?ref=badge_shield)
 
-This project is a small system used to show some of the test cases unique to microservices as well as how microservices can be tested. To be clear, this is not a reference architecture for microservices nor a guide for implementation of microservices as most of the services were implemented with the goal of simplicity so that consumers may focus on the testing aspects of the project. The project leverages Micronaut, Consul, Express Gateway, and Axon's Event Sourcing framework. The system can be run in multiple configurations using Docker, each for a specific test case need. Finally, the project includes guides for implementing new tests under the `documentation` folder.
+This project is a small system used to show some of the test cases unique to microservices as well as how microservices can be tested. To be clear, this is not a reference architecture for microservices, nor a guide for implementation of microservices as most of the services were implemented with the goal of simplicity so that consumers may focus on the testing aspects of the project. The project leverages Micronaut, Consul, Express Gateway, and Axon's Event Sourcing framework. The system can be run in multiple configurations using Docker, each for a specific test case need. Finally, the project includes guides for implementing new tests under the documentation folder.
 
-Below, you will find two guides, one for configuring your system to run the project and another for ensuring your system can run the tests. This latter guide also serves to introduce you to the test cases and architecture required for each case.
+Below, you will find two guides, one for configuring your system to run the project and another for ensuring your system can run the tests. This latter guide also serves to introduce you to the test cases and architecture required for each example.
 
 ### Test Pyramid
 
@@ -18,23 +18,23 @@ The test pyramid looks like the following for this project:
 3. Service Isolation Tests
 4. Unit and Integration Tests at the Class Level
 
-The pyramid is intentionally small here, your pyramid may look quite different. Also, we purposely did not include system tests as that is not a layer of the pyramid that is unique to microservices and thus not the focus of this project.
+The pyramid is intentionally small here; your pyramid may look quite different. Also, we purposely did not include system tests as that is not a layer of the pyramid that is unique to microservices and thus not the focus of this project.
 
 ![](documentation/images/micronaut.jpg)![](documentation/images/axon.png)![](documentation/images/consul.svg)![](documentation/images/mongo.png)![](documentation/images/express-gateway.png)![](documentation/images/junit5-banner.png)
 
-## Architecture
+## Overview
 
 ![Build Status](documentation/images/services.png)
 <p style="text-align: center;">The overall Banking Example architecture is broken into two sub-domains, Accounts and People.</p>
-
-![Build Status](documentation/images/activity.png)
-<p style="text-align: center;">Example of flow of data after issueing a withdraw command.</p>
 
 ![Build Status](documentation/images/routing.png)
 <p style="text-align: center;">Routing configuration of gateways.</p>
 
 ![Default Configuration](documentation/images/default-configuration.png)
 <p style="text-align: center;">The above diagram shows the connectivity and bounardaries for a typical service running under the default Micronaut configuration.</p>
+
+![Build Status](documentation/images/activity.png)
+<p style="text-align: center;">Example of flow of data after issueing a withdraw command.</p>
 
 ## Configuration
 
