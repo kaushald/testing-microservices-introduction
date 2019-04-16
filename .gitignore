@@ -38,3 +38,4 @@ nbdist/
 target
 /axonserver-eventstore
 /axonserver-controldb
+bin

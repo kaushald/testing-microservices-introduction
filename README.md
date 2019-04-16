@@ -33,6 +33,9 @@ The pyramid is intentionally small here, your pyramid may look quite different. 
 ![Build Status](documentation/images/routing.png)
 <p style="text-align: center;">Routing configuration of gateways.</p>
 
+![Default Configuration](documentation/images/default-configuration.png)
+<p style="text-align: center;">The above diagram shows the connectivity and bounardaries for a typical service running under the default Micronaut configuration.</p>
+
 ## Configuration
 
 The services can be configured in three ways, a local default configuration under each project resources/application.yml, a development configuration under
@@ -107,7 +110,7 @@ The following examples use shell scripts, just replace the `.sh` extensions in t
 `.bat` to execute them in Command Prompt or PowerShell.
 
 ## Running Unit and Integration Tests
-
+![Unit and Integration Testing](documentation/images/unit-integration-class.png)
 The Gradle task 'test' executes the JUnit tests for each project.
 ```bash
 sh ./scripts/run-unit-tests.sh
@@ -198,7 +201,7 @@ docker-compose -f docker-compose-subdomain-testing.yml up
 ```
 Once the services stabilize, you should see a message like `o.a.a.c.AxonServerConnectionManager - Re-subscribing commands and queries`, at this point you can open a new terminal and run the tests.
 ```bash
-sh ./scripts/run-sub-domain-integration-tests.sh
+sh ./scripts/run-sub-domain-integration-tests.sh 
 ```
 Take down the services in the other terminal window.
 ```bash
