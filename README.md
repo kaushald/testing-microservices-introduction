@@ -10,6 +10,8 @@ Below, you will find two guides, one for configuring your system to run the proj
 
 ### Test Pyramid
 
+![Test Pyramid](documentation/images/microservice_testing_pyramid_small.png)
+
 The test pyramid looks like the following for this project:
 1. Service Integration Tests
    * Subdomain Testing
