@@ -11,6 +11,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 RUN npm install express-gateway@$VERSION && \
+    rm package.json && \
     ./node_modules/.bin/eg gateway create -n gateway -d . -t $TYPE && \
     npm cache clean --force
 
