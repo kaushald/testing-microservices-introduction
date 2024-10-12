@@ -62,7 +62,7 @@ services:
       - 'mongo:/data/mongo/db'
 
   redis:
-    image: redis:5.0.4
+    image: redis
     ports:
       - "6379:6379"
     volumes:

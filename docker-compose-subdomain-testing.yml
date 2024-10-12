@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   discovery-service:
-    image: bitnami/consul:1.4.3
+    image: bitnami/consul:latest
     ports:
       - '8300:8300'
       - '8301:8301'
@@ -30,6 +30,25 @@ services:
       - "8081:8081"
     volumes:
       - ./docker/wiremock/people:/home/wiremock
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - 'redis:/data/redis'
+
+  axonserver:
+    image: 'axoniq/axonserver'
+    ports:
+      - '8124:8124'
+      - '8024:8024'
+    environment:
+      - AXONSERVER_EVENTSTORE=/eventstore
+      - AXONSERVER_CONTROLDB=/controldb
+    volumes:
+      - ./axonserver-eventstore:/eventstore
+      - ./axonserver-controldb:/controldb
     restart: on-failure
 
   account-cmd:
@@ -90,24 +109,6 @@ services:
     volumes:
       - 'mongo:/data/mongo/db'
 
-  redis:
-    image: redis:5.0.4
-    ports:
-      - "6379:6379"
-    volumes:
-      - 'redis:/data/redis'
-
-  axonserver:
-    image: axoniq/axonserver:4.1
-    ports:
-      - '8124:8124'
-      - '8024:8024'
-    environment:
-      - AXONSERVER_EVENTSTORE=/eventstore
-      - AXONSERVER_CONTROLDB=/controldb
-    volumes:
-      - ./axonserver-eventstore:/eventstore
-      - ./axonserver-controldb:/controldb
 
 volumes:
   axonserver-eventstore:
