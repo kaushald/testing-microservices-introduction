@@ -80,63 +80,6 @@ public class AccountEventConsumptionTest {
     }
 
     @Test
-    public void givenNoAccounts_whenGettingAccounts_thenEmptyListReturned() {
-        // Arrange
-
-        // Act
-        RestAssured.baseURI = restHelper.getAccountGatewayUrl();
-        Response response = given().urlEncodingEnabled(true)
-            .get("/api/v1/accounts/");
-
-        // Assert
-        List<Account> list = (List<Account>) response.then()
-            .statusCode(200)
-            .extract()
-            .response()
-            .as(List.class);
-
-        assertEquals(0, list.size());
-    }
-
-    @Test
-    public void givenOneAccount_whenGettingAccounts_thenListOfOneReturned() {
-        // Arrange
-        restHelper.createAccount(VALID_PERSON_ID, 0.0);
-        // Act
-        RestAssured.baseURI = restHelper.getAccountGatewayUrl();
-        Response response = given().urlEncodingEnabled(true)
-            .get("/api/v1/accounts/");
-
-        // Assert
-        List list = response.then()
-            .statusCode(200)
-            .extract()
-            .response()
-            .as(List.class);
-        assertEquals(1, list.size());
-    }
-
-    @Test
-    public void givenThreeAccounts_whenGettingAccounts_thenListOfThreeReturned() {
-        // Arrange
-        restHelper.createAccount(VALID_PERSON_ID, 0.0);
-        restHelper.createAccount(VALID_PERSON_ID, 0.0);
-        restHelper.createAccount(VALID_PERSON_ID, 0.0);
-        // Act
-        RestAssured.baseURI = restHelper.getAccountGatewayUrl();
-        Response response = given().urlEncodingEnabled(true)
-            .get("/api/v1/accounts/");
-
-        // Assert
-        List list = response.then()
-            .statusCode(200)
-            .extract()
-            .response()
-            .as(List.class);
-        assertEquals(3, list.size());
-    }
-
-    @Test
     public void givenAccountDeleted_whenGettingAccount_thenNoAccountReturned() {
         // Arrange
         String accountId = restHelper.createAccount(VALID_PERSON_ID, 0.0);

@@ -39,7 +39,7 @@ services:
       - 'redis:/data/redis'
 
   axonserver:
-    image: 'axoniq/axonserver'
+    image: 'axoniq/axonserver:4.1'
     ports:
       - '8124:8124'
       - '8024:8024'
